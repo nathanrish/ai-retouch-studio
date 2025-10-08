@@ -1,7 +1,23 @@
 {
-  "name": "ai-retouch-studio-panel",
+  "name": "@nathanrish/ai-retouch-studio-panel",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "description": "Photoshop UXP panel for AI Retouch Studio (Stable Diffusion + SAM).",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanrish/ai-retouch-studio.git"
+  },
+  "homepage": "https://github.com/nathanrish/ai-retouch-studio",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "manifest.json",
+    "index.html",
+    "css/",
+    "src/"
+  ],
   "scripts": {
     "build": "echo 'UXP panel does not require build step by default'",
     "start": "echo 'Load this folder as a UXP plugin in Photoshop'"

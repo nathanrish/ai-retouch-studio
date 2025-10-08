@@ -6,6 +6,14 @@ Professional Photoshop panel with AI-powered retouching.
 - **Frontend:** Photoshop UXP Panel (document export / smart object placement / SAM UI)
 - **Infra:** Docker Compose (backend, Postgres, Redis), model downloader
 
+<p align="left">
+  <a href="https://github.com/nathanrish/ai-retouch-studio/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white">
+  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.110+-009688?logo=fastapi&logoColor=white">
+  <img alt="Docker" src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white">
+  <img alt="Photoshop UXP" src="https://img.shields.io/badge/Photoshop-UXP-31A8FF?logo=adobephotoshop&logoColor=white">
+</p>
+
 ## Features
 - **AI Retouching (Stable Diffusion):** text-guided professional edits (img2img, inpaint)
 - **Precision Masking (SAM):** point-based mask generation
@@ -39,6 +47,12 @@ Photoshop panel:
 1) Enable UXP Developer Mode
 2) Load `frontend/` as a plugin
 3) Open a document → enter prompt → Run Retouch; or use SAM controls to create a mask
+
+## Demo
+
+Add a short screen capture/GIF to showcase the workflow. Place it at `docs/demo.gif` and it will render below:
+
+![AI Retouch Studio Demo](docs/demo.gif)
 
 ## Repository Structure
 ```
@@ -114,6 +128,11 @@ uvicorn app.main:app --reload
 ## Contributing
 - Issues and PRs welcome. Please include repro steps and environment info.
 - For major features (e.g., GFPGAN/ESRGAN), open an RFC issue first.
+
+### Development tips
+- Prefer small PRs with clear scope and screenshots where applicable.
+- Include performance notes for model changes (VRAM, steps, latency).
+- For UXP panel tweaks, attach a GIF of the interaction.
 
 ## License
 Apache-2.0 (proposed). If you prefer a different license, update this section and add `LICENSE`.

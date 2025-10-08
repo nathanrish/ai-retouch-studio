@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-retouch-backend"
+version = "1.0.0"
+description = "FastAPI backend for AI Retouch Studio (Stable Diffusion, SAM, LUTs)."
+authors = [
+  { name = "AI Retouch Studio Contributors" }
+]
+readme = "../README.md"
+requires-python = ">=3.10"
+license = { file = "../LICENSE" }
+keywords = ["photoshop", "uxp", "fastapi", "stable-diffusion", "segment-anything", "image-editing"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+# Runtime deps (full backend). For lightweight CI, install selectively in workflow.
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.29",
+  "pillow>=10.3",
+  "pydantic>=2.6",
+  "python-multipart>=0.0.9",
+  "redis>=5.0",
+  "psycopg2-binary>=2.9",
+  "transformers>=4.43",
+  "torch>=2.2",
+  "diffusers>=0.28",
+  "accelerate>=0.29",
+  "safetensors>=0.4",
+  "huggingface-hub>=0.23",
+  "requests>=2.31",
+  "opencv-python-headless>=4.8",
+]
+
+[tool.setuptools]
+package-dir = {"" = "app"}
+
+[tool.setuptools.packages.find]
+where = ["app"]
+
+[project.urls]
+Homepage = "https://github.com/nathanrish/ai-retouch-studio"
+Issues = "https://github.com/nathanrish/ai-retouch-studio/issues"
