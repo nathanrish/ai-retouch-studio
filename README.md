@@ -48,6 +48,102 @@ Photoshop panel:
 2) Load `frontend/` as a plugin
 3) Open a document → enter prompt → Run Retouch; or use SAM controls to create a mask
 
+## Getting the Code
+
+- **Clone**
+  ```bash
+  git clone https://github.com/nathanrish/ai-retouch-studio.git
+  cd ai-retouch-studio
+  ```
+- **Download ZIP**
+  - Click "Code" → "Download ZIP" on the repository page → extract, then `cd` into the extracted folder.
+
+## Run Locally (Docker)
+
+- **Models**: Place `models/sam/sam_vit_b_01ec64.pth` or run downloader first:
+  ```bash
+  cd backend
+  python scripts/download_models.py
+  cd ..
+  ```
+- **Compose up**
+  ```bash
+  cd infrastructure
+  docker compose up --build
+  ```
+- **Verify**
+  - http://localhost:8000/api/v1/health
+  - http://localhost:8000/docs
+
+## Run Locally (without Docker)
+
+Backend API:
+```bash
+cd backend
+python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\Activate.ps1
+pip install --upgrade pip
+pip install -r requirements.txt
+uvicorn app.main:app --reload --port 8000
+```
+
+Frontend (Photoshop UXP):
+- Open Photoshop → Enable UXP Developer Mode → Load `frontend/` as a plugin.
+- Open an image → use the panel to Run Retouch or Create Mask (SAM).
+
+## Using on a VM (POC)
+
+1) **Install Docker & Compose** on the VM (Ubuntu 22.04 recommended).
+2) **Copy repo and models** to the VM, for example under `/opt/ai-retouch-studio`:
+   ```bash
+   mkdir -p /opt/ai-retouch-studio && cd /opt/ai-retouch-studio
+   git clone https://github.com/nathanrish/ai-retouch-studio.git .
+   mkdir -p models/sam
+   # Copy sam_vit_b_01ec64.pth into models/sam/
+   ```
+3) **Start services**
+   ```bash
+   cd infrastructure
+   docker compose up -d --build
+   ```
+4) **Open** `http://<VM-IP>:8000/docs`
+
+GPU (optional): set `AI_DEVICE=cuda` and ensure NVIDIA runtime is installed.
+
+## Photoshop Integration (UXP)
+
+- **Load panel**: `frontend/manifest.json` → load folder in UXP Developer Mode.
+- **Export & Place**: `frontend/src/photoshop-bridge.js` handles:
+  - `readActiveDocumentAsPNG()` to export active document
+  - `placeImageFromBytes(bytes, layerName)` to place AI results as a Smart Object layer
+- **SAM UI**: `frontend/src/main.js` adds controls under `.ai-tools`:
+  - Add points (foreground/background) → Create Mask → mask placed as new layer
+
+## Testing the API
+
+- **Swagger**: `http://localhost:8000/docs`
+- **cURL (img2img)**
+  ```bash
+  curl -X POST http://localhost:8000/api/v1/retouch/process \
+    -F "prompt=professional skin retouching, natural texture" \
+    -F "operation=img2img" \
+    -F "image=@test.png" 
+  ```
+- **cURL (SAM points)**
+  ```bash
+  curl -X POST http://localhost:8000/api/v1/segmentation/segment-from-points \
+    -F "image=@test.png" \
+    -F 'points=[[100,100],[150,150]]' \
+    -F 'labels=[1,0]'
+  ```
+
+## Troubleshooting
+
+- **Models missing**: Ensure `models/sam/sam_vit_b_01ec64.pth` exists or run `backend/scripts/download_models.py`.
+- **Docker not found (Windows)**: Install Docker Desktop and verify `docker --version`.
+- **Slow generation**: Reduce `steps`, use CPU-friendly settings, or run on a GPU with `AI_DEVICE=cuda`.
+- **Photoshop bridge not working outside UXP**: The bridge is guarded to no-op when not running in Photoshop.
+- **CORS**: For POC, CORS is open. In production, restrict origins in `backend/app/main.py`.
+
 ## Demo
 
 Add a short screen capture/GIF to showcase the workflow. Place it at `docs/demo.gif` and it will render below:
