@@ -13,7 +13,6 @@ Professional Photoshop panel with AI-powered retouching.
   <img alt="Docker" src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white">
   <img alt="Photoshop UXP" src="https://img.shields.io/badge/Photoshop-UXP-31A8FF?logo=adobephotoshop&logoColor=white">
   <a href="https://github.com/nathanrish/ai-retouch-studio/actions/workflows/ci-conda.yml"><img alt="CI" src="https://github.com/nathanrish/ai-retouch-studio/actions/workflows/ci-conda.yml/badge.svg"></a>
-  <a href="https://pypi.org/project/ai-retouch-backend/"><img alt="PyPI" src="https://img.shields.io/pypi/v/ai-retouch-backend.svg"></a>
 </p>
 
 ## Features
@@ -146,11 +145,7 @@ GPU (optional): set `AI_DEVICE=cuda` and ensure NVIDIA runtime is installed.
 - **Photoshop bridge not working outside UXP**: The bridge is guarded to no-op when not running in Photoshop.
 - **CORS**: For POC, CORS is open. In production, restrict origins in `backend/app/main.py`.
 
-## Demo
-
-Add a short screen capture/GIF to showcase the workflow. Place it at `docs/demo.gif` and it will render below:
-
-![AI Retouch Studio Demo](docs/demo.gif)
+<!-- Demo GIF intentionally omitted until available. See docs/DEMO_GUIDE.md to add one. -->
 
 ## Repository Structure
 ```
