@@ -12,7 +12,6 @@ Professional Photoshop panel with AI-powered retouching.
   <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.110+-009688?logo=fastapi&logoColor=white">
   <img alt="Docker" src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white">
   <img alt="Photoshop UXP" src="https://img.shields.io/badge/Photoshop-UXP-31A8FF?logo=adobephotoshop&logoColor=white">
-  <a href="https://github.com/nathanrish/ai-retouch-studio/actions/workflows/ci-conda.yml"><img alt="CI" src="https://github.com/nathanrish/ai-retouch-studio/actions/workflows/ci-conda.yml/badge.svg"></a>
 </p>
 
 ## Features
