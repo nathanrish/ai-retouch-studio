@@ -1,0 +1,16 @@
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+pillow==10.3.0
+transformers==4.43.3
+torch>=2.2.0
+pydantic==2.6.4
+python-multipart==0.0.9
+redis==5.0.3
+psycopg2-binary==2.9.9
+diffusers==0.28.0
+accelerate==0.29.3
+safetensors==0.4.2
+huggingface-hub>=0.23.0
+requests>=2.31.0
+opencv-python-headless>=4.8.1.78
+git+https://github.com/facebookresearch/segment-anything.git

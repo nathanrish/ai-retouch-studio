@@ -1,0 +1,10 @@
+{
+  "name": "ai-retouch-studio-panel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'UXP panel does not require build step by default'",
+    "start": "echo 'Load this folder as a UXP plugin in Photoshop'"
+  },
+  "dependencies": {}
+}

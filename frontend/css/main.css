@@ -1,0 +1,15 @@
+body { font-family: system-ui, sans-serif; margin: 0; padding: 12px; }
+#app { display: flex; flex-direction: column; gap: 12px; }
+.controls { display: flex; flex-direction: column; gap: 8px; }
+button { padding: 8px 12px; cursor: pointer; }
+#output { white-space: pre-wrap; font-family: ui-monospace, monospace; }
+
+/* SAM styles */
+.sam-section { margin-top: 20px; padding-top: 15px; border-top: 1px solid #444; }
+.sam-controls { display: flex; flex-direction: column; gap: 10px; }
+.sam-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+.sam-status { font-size: 11px; padding: 8px; background: #2c2c2c; border-radius: 4px; min-height: 32px; display: flex; align-items: center; }
+.sam-points-list { max-height: 120px; overflow-y: auto; font-size: 11px; padding: 8px; background: #2c2c2c; border-radius: 4px; }
+.btn-secondary { background: #2c2c2c; color: #fff; border: 1px solid #555; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 11px; transition: all 0.2s ease; }
+.btn-secondary:hover:not(:disabled) { background: #4d4d4d; border-color: #3fa9f5; }
+.btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }

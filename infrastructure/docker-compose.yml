@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  backend:
+    build: ../backend
+    image: ai-retouch-backend:latest
+    container_name: ai-retouch-backend
+    environment:
+      - ENV=development
+      - QWEN_IMAGE_MODEL=Qwen/Qwen2-VL-2B-Instruct
+      - AI_DEVICE=
+      - REDIS_URL=redis://redis:6379/0
+      - POSTGRES_DSN=postgresql://postgres:postgres@db:5432/retouch
+      - SAM_MODEL_PATH=/app/models/sam/sam_vit_b_01ec64.pth
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../models:/app/models
+      - ../backend:/app
+      - backend_storage:/app/storage
+    depends_on:
+      - db
+      - redis
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+              count: 0
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: retouch
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+volumes:
+  db_data:
+  backend_storage:
