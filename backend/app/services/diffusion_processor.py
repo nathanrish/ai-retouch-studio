@@ -1,3 +1,8 @@
+"""
+Copyright (c) 2025 AI Retouch Studio Contributors
+SPDX-License-Identifier: Apache-2.0
+"""
+
 import os
 from dataclasses import dataclass
 from typing import Optional

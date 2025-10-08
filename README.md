@@ -12,6 +12,8 @@ Professional Photoshop panel with AI-powered retouching.
   <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.110+-009688?logo=fastapi&logoColor=white">
   <img alt="Docker" src="https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white">
   <img alt="Photoshop UXP" src="https://img.shields.io/badge/Photoshop-UXP-31A8FF?logo=adobephotoshop&logoColor=white">
+  <a href="https://github.com/nathanrish/ai-retouch-studio/actions/workflows/ci-conda.yml"><img alt="CI" src="https://github.com/nathanrish/ai-retouch-studio/actions/workflows/ci-conda.yml/badge.svg"></a>
+  <a href="https://pypi.org/project/ai-retouch-backend/"><img alt="PyPI" src="https://img.shields.io/pypi/v/ai-retouch-backend.svg"></a>
 </p>
 
 ## Features
@@ -231,7 +233,7 @@ uvicorn app.main:app --reload
 - For UXP panel tweaks, attach a GIF of the interaction.
 
 ## License
-Apache-2.0 (proposed). If you prefer a different license, update this section and add `LICENSE`.
+Apache-2.0. See the [`LICENSE`](LICENSE) file for details.
 
 ## Roadmap (v1.1)
 - Enhancement pipeline: GFPGAN, Real-ESRGAN

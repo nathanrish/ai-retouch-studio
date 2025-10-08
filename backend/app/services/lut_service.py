@@ -1,3 +1,8 @@
+"""
+Copyright (c) 2025 AI Retouch Studio Contributors
+SPDX-License-Identifier: Apache-2.0
+"""
+
 from typing import List
 from PIL import Image, ImageEnhance
 import io
