@@ -33,19 +33,18 @@ jobs:
           conda activate airs-test
           python -V
 
-      - name: Install minimal deps and package (no heavy deps)
+      - name: Install minimal deps (no heavy deps)
         shell: bash -l {0}
         run: |
           conda activate airs-test
           # minimal libs for light tests
           python -m pip install --upgrade pip
-          python -m pip install fastapi pillow
-          # install package without resolving heavy deps (torch/diffusers)
-          python -m pip install -e backend --no-deps
+          python -m pip install pillow
 
       - name: Run tests (lightweight subset)
         shell: bash -l {0}
         run: |
           conda activate airs-test
+          export PYTHONPATH=$GITHUB_WORKSPACE
           # Run only lightweight tests that do not require models or torch
           pytest -q quality/tests/services
