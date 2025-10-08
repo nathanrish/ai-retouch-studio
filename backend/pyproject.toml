@@ -15,8 +15,16 @@ license = { file = "../LICENSE" }
 keywords = ["photoshop", "uxp", "fastapi", "stable-diffusion", "segment-anything", "image-editing"]
 classifiers = [
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Multimedia :: Graphics :: Editors",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 # Runtime deps (full backend). For lightweight CI, install selectively in workflow.
 dependencies = [

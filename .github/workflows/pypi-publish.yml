@@ -29,6 +29,14 @@ jobs:
         run: |
           python -m build
 
+      - name: Smoke test (import package from wheel, no deps)
+        run: |
+          python -m venv .venv-smoke
+          . .venv-smoke/bin/activate || source .venv-smoke/Scripts/activate
+          python -m pip install --upgrade pip
+          python -m pip install dist/*.whl --no-deps
+          python -c "import app, sys; v=getattr(app, '__version__', 'unknown'); print('smoke import ok, version=', v); sys.exit(0)"
+
       - name: Publish to TestPyPI on prerelease
         if: ${{ github.event.release.prerelease }}
         env:
