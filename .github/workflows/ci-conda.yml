@@ -23,7 +23,6 @@ jobs:
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
-          activate-environment: airs-test
           auto-activate-base: false
 
       - name: Create conda env
@@ -31,6 +30,7 @@ jobs:
         run: |
           conda create -y -n airs-test python=${{ matrix.python-version }} pip pytest
           conda activate airs-test
+          conda info
           python -V
 
       - name: Install minimal deps (no heavy deps)
